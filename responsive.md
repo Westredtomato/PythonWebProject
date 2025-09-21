@@ -1,6 +1,6 @@
 ### 响应式布局项目
 
->  你的界面既可以兼容PC端还可以兼容移动端，在不同的平台下 你页面的排版都能很合理去排列顺序，不会让页面错乱，那么这种响应式布局
+> 你的界面既可以兼容 PC 端还可以兼容移动端，在不同的平台下 你页面的排版都能很合理去排列顺序，不会让页面错乱，那么这种响应式布局
 
 目录结构
 
@@ -26,26 +26,35 @@ spirit
 ### 工具插件
 
 ```
-css: 媒体查询@media 视口viewport css常用属性
+css:
+   媒体查询@media 视口viewport
+   css常用属性 flex 弹性布局
 bootstrap UI框架
 less css的一个解析器 可以快速敏捷去使用css 和 编译css
 ```
 
 ### bootstrap3
 
->  [https://v3.bootcss.com/](https://v3.bootcss.com/)
+> [https://v3.bootcss.com/](https://v3.bootcss.com/)
 
-### wow.js瀑布流插件
+### wow.js 瀑布流插件
 
->  [https://wowjs.uk/docs.html](https://wowjs.uk/docs.html)
+> [https://wowjs.uk/docs.html](https://wowjs.uk/docs.html)
 
-### animate.css动画库插件
+### animate.css 动画库插件
 
->  [https://animate.style/](https://animate.style/)
-
+> [https://animate.style/](https://animate.style/)
 
 ### 响应式布局技巧
 
 ```
 1. 始终都不可能出现横向的滚动条
+```
+
+### 制作页面布局的步骤
+
+```
+1. 画页面的轮廓 -》 html布局 可以从最外层往里面一层一层渗透进去
+2. 写美化的效果 ->  css样式 添加样式的时候 可以从最外层往里面一层一层渗透进去
+3. 调整页面的兼容(调整浏览器窗口大小) -> 媒体查询@media
 ```
