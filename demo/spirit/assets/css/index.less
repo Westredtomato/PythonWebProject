@@ -1,0 +1,646 @@
+// 让锚点跳转链接平缓
+html{
+  scroll-behavior: smooth;
+}
+
+// 重新定义导航元素 覆盖bootstrap框架自带的样式
+.navbar{
+  // 让导航栏紧贴着浏览器窗口
+  position: sticky;
+  left:0;
+  top:0;
+  // 层级深度
+  z-index:10;
+
+
+  border-radius: 0px;
+  border:0px;
+  background:#111111;
+  overflow: hidden;
+  padding: .8em 0em;
+  margin-bottom:0px;
+  width:100%;
+
+  // 修改logo
+  .navbar-brand{
+    text-transform: uppercase;
+    font-family: OSBold;
+  }
+
+  // 导航元素修改
+  .nav{
+    margin: 0px;
+    overflow: hidden;
+  }
+
+  .nav a{
+    text-transform: uppercase;
+    font-family: OSBold;
+    border-bottom:5px solid transparent;
+
+    // 过渡效果
+    transition: all .3s linear;
+
+    // & == a 元素自己本身  hover 悬停的意思
+    &:hover{
+      border-bottom:5px solid #fcac45;
+      transform:scale(1.1);
+    }
+  }
+
+  // css媒体查询
+  // 折叠导航 770px 
+  @media screen and (max-width:770px){
+    .nav a{
+      text-align: center;
+    }
+  }
+
+}
+
+// banner
+.banner{
+  background:#111;
+  color:#d5d5d5;
+  text-align: center;
+  padding:16em 0em 6em;
+  overflow: hidden;
+  background: url(../images/R-C.jpg) no-repeat;
+  background-size:  auto;
+
+  .title{
+    font-family: OSBold;
+    text-transform: uppercase;
+    font-size:3em;
+
+    span{
+      color:#fcac45;
+    }
+  }
+
+  .subtitle{
+    font-family: OSLight;
+    font-size:1.5em;
+    letter-spacing: 1px;
+    margin-bottom:15em;
+
+    span{
+      font-family: OSBold;
+    }
+  }
+
+  .more{
+    width:4em;
+    height:4em;
+    line-height:3em;
+    border:3px solid #d5d5d5;
+    border-radius:100%;
+    margin:0 auto;
+
+    transition:all linear .3s;
+
+    a{
+      width:100%;
+      height:100%;
+      font-size:1.5em;
+      font-weight: bold;
+      color:#fff;
+    }
+
+    &:hover{
+      transform:translateY(-10px);
+      box-shadow: 0px 10px 10px 5px #d5d5d5;
+    }
+    
+  }
+
+  @media screen and (max-width:700px){
+    .title{
+      font-size: 2.2em;
+    }
+
+    .subtitle{
+      font-size:1.5em;
+    }
+  }
+}
+
+// 关于我们About
+.about{
+  padding:6em 0em;
+  color:#797979;
+
+  .container{
+    // 弹性布局
+    display: flex;
+
+    .left{
+      // 默认缩放为1 0不缩放
+      flex-shrink: .5;
+    }
+
+    .right{
+      width: 60%;
+
+      .subject{
+        margin-bottom:2em;
+
+        .small{
+          font-family: OSLight;
+          font-size:1.5em;
+          text-transform: uppercase;
+        }
+
+        .big{
+          width:95%;
+          font-family: OSLight;
+          font-size:2.5em;
+          text-transform: uppercase;
+          color:#000;
+
+          // 强制让文字只能在一行显示
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          span:first-child{
+            display: inline-block;
+            padding-bottom:.3em;
+            border-bottom:5px solid #fcac45;
+          }
+
+          span:last-child{
+            font-family: OSBold;
+          }
+        }
+      }
+
+      .desc{
+        color: #797979;
+        font-size:1.2em;
+        font-family: OSLtalic;
+        margin-bottom:2em;
+      }
+
+      .list{
+        margin-bottom:2em;
+
+        li{
+          font-size:1.2em;
+          margin-bottom: .3em;
+
+          span:first-child{
+            top:2px;
+          }
+
+          span:last-child{
+            font-family: OSBold;
+          }
+        }
+      }
+
+      .more{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width:20em;
+        padding:1em 2em;
+        border:1px solid #797979;
+        border-radius: 3px;
+        cursor: pointer;
+        transition:all linear .3s;
+
+        &:hover{
+          transform:translateY(-10px);
+          box-shadow: 0px 10px 10px 10px #737373;
+        }
+
+        span:first-child{
+          top:-1px;
+          margin-right:.5em;
+        }
+
+        span:last-child{
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size:1.2em;
+        }
+      }
+    }
+  }
+
+  // 当屏幕缩小到1000px以下的时候
+  @media screen and (max-width:1000px){
+    .container{
+      display: block;
+
+      .left{
+        display: none;
+      }
+
+      .right{
+        width:100%;
+      }
+    }
+  }
+
+  @media screen and (max-width:500px){
+    padding:3em 0em;
+
+    .container{
+      .right{
+        .subject{
+          .small{
+            font-size:1.2em;
+          }
+
+          .big{
+            font-size:2em;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 团队team
+.team{
+  background:#111111;
+  padding:6em 0em;
+  color:#fff;
+
+  .title{
+    font-size:3em;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    background:url('../images/title-background.png') no-repeat center bottom;
+    padding-bottom:.8em;
+    margin-bottom:2.5em;
+    font-family: OSLight;
+
+    span{
+      font-family: OSBold;
+    }
+  }
+
+  .list{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:5em;
+
+    .item{
+      width:23%;
+
+      .cover{
+        width:70%;
+        margin:0 auto;
+        border-radius: 100px;
+        overflow: hidden;
+        margin-bottom:1em;
+
+        transition:all linear .3s;
+
+        &:hover{
+          transform:translateY(-10px);
+          box-shadow: 0px 20px 10px 10px #797979;
+        }
+      }
+
+      .box{
+        text-align: center;
+
+        p:first-child{
+          font-size:1.3em;
+          font-family: OSBold;
+        }
+
+        p:nth-child(2){
+          margin-bottom:2em;
+        }
+      }
+    }
+  }
+
+  .more{
+    width:100%;
+    text-align: center;
+
+    span{
+      display: inline-block;
+      width:1em;
+      height:1em;
+      background:#fff;
+      transition: all linear .3s;
+      cursor: pointer;
+      margin-right:1em;
+
+      &:hover{
+        background:#fcac45;
+      }
+    }
+  }
+
+  // 最大为600px的时候 改成垂直的排列方式
+  @media screen and (max-width:600px){
+    &{
+      padding:6em 0em 3em;
+    }
+
+    .list{
+      display: block;
+      margin-bottom:3em;
+
+      .item{
+        width:100%;
+        display: flex;
+        margin-bottom:1em;
+
+        .cover{
+          border-radius: 0px;
+          width:50%;
+          margin-right:2%;
+        }
+
+        .box{
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+// 联系我们
+.contact{
+  padding:6em 0em;
+
+  // 标题
+  .title{
+    width:80%;
+    margin:0 auto;
+    font-size:3em;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    background:url('../images/title-background.png') no-repeat center bottom;
+    padding-bottom:.8em;
+    margin-bottom:1em;
+    font-family: OSLight;
+
+    // 强制在一行显示
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+    span{
+      font-family: OSBold;
+    }
+  }
+
+  // 段落
+  .desc{
+    width:85%;
+    font-family: OSLight;
+    font-size:1.2em;
+    margin:0 auto;
+    text-align: center;
+    margin-bottom:6em;
+  }
+
+  // 表单
+  .register{
+    width:100%;
+
+    .top{
+      width:100%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom:1em;
+
+      .item{
+        width:49%;
+
+        h5{
+          font-size:1.2em;
+          margin-bottom:.2em;
+          color: #797979;
+          
+
+          sup{
+            color:red;
+            font-size:100%;
+            top:0;
+          }
+        }
+
+        input{
+          width:100%;
+          height:2em;
+          line-height:2em;
+          font-size:1.2em;
+        }
+      }
+    }
+
+    .bottom{
+      width:100%;
+      margin-bottom:1em;
+
+      h5{
+        font-size:1.2em;
+        margin-bottom:.2em;
+        color: #797979;
+
+        sup{
+          color:red;
+          font-size:100%;
+          top:0;
+        }
+      }
+
+      textarea{
+        display: block;
+        width:100%;
+        height:14em;
+        font-size:1.2em;
+      }
+    }
+
+    .send{
+      width:100%;
+      text-align: right;
+
+      button{
+        width:13em;
+        height:3em;
+        line-height:3em;
+        color:#fff;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: OSBold;
+        font-size:1.2em;
+        background: #fcac45;
+        border:0px;
+
+        transition: all linear .3s;
+
+        &:hover{
+          transform: translateY(-10px);
+          box-shadow: 0px 20px 10px 1px #d7d7d7;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width:600px){
+    &{
+      padding:6em 0em 3em;
+
+      .title{
+        font-size:2em;
+      }
+
+      .desc{
+        width:95%;
+      }
+
+      .register{
+        .top{
+          display: block;
+
+          .item{
+            width:100%;
+            margin-bottom:1.5em;
+          }
+        }
+
+        .send{
+          text-align: center;
+
+          button{
+            width:16em;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 底部
+.footer{  
+  background:#111111;
+  padding:2em 0em;
+  color:#fff;
+
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    &::before,&::after{
+      content: '';
+      display: none;
+    }
+
+    .copyright{
+      font-size:1.2em;
+      font-family: OSLight;
+
+      span{
+        font-family: OSBold;
+      }
+    }
+
+    .link{
+      display: flex;
+
+      .item{
+        width:3em;
+        height:3em;
+        border:2px solid #737373;
+        border-radius: 100px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all linear .3s;
+        margin-right:.5em;
+
+        &:hover{
+          transform: translateY(-10px);
+          box-shadow: 0px 10px 10px 1px #797979;
+        }
+
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width:700px){
+    .container{
+      display: block;
+
+      .copyright, .link{
+        width:100%;
+        margin-bottom:1em;
+      }
+
+      .copyright{
+        text-align: center;
+      }
+
+      .link{
+        justify-content: space-around;
+      }
+    }
+  }
+}
+
+//up
+.up{
+    width: 70px;
+    height: 70px;
+    position: fixed;
+    bottom: 45px;
+    right: 45px;
+    a{
+        width: 100%;
+        height: 100%;  
+    }
+   
+    a:hover {
+        animation: up 1s;
+    }
+    @keyframes up {
+        from {
+          transform: scale3d(1, 1, 1);
+        }
+      
+        30% {
+          transform: scale3d(1.25, 0.75, 1);
+        }
+      
+        40% {
+          transform: scale3d(0.75, 1.25, 1);
+        }
+      
+        50% {
+          transform: scale3d(1.15, 0.85, 1);
+        }
+      
+        65% {
+          transform: scale3d(.95, 1.05, 1);
+        }
+      
+        75% {
+          transform: scale3d(1.05, .95, 1);
+        }
+      
+        to {
+          transform: scale3d(1, 1, 1);
+        }
+      }
+}
